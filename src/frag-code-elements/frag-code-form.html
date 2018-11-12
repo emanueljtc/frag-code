@@ -1,0 +1,40 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="../../bower_components/paper-styles/default-theme.html">
+
+
+
+
+<dom-module id="frag-code-form">
+  <style>
+    paper-button{
+      background-color: var(--accent-color);
+      color: white;
+    }
+  </style>
+  <template is="iron-form">
+      <paper-input label="Big Description..." id="description"></paper-input>
+      <paper-textarea label="Copy your code here..." id="code"></paper-textarea>
+      <paper-input label="Language" id="language"></paper-input>
+
+      <paper-button raised on-tab="addSnippet">Save Snippet of code</paper-button>
+  </template>
+  <script>
+    class FragCodeForm extends Polymer.Element {
+        static get is() { return 'frag-code-form'; }
+        /* static get properties() {
+          return {
+            prop1: {
+              type: String,
+              value: 'frag-code-app'
+            }
+          };
+        } */
+      }
+
+      window.customElements.define(FragCodeForm.is, FragCodeForm);
+  </script>
+</dom-module>

@@ -1,6 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
-
+<link rel="import" href="../frag-code-elements/frag-code-form.html">
 
 <dom-module id="frag-code-app">
   <template>
@@ -10,21 +10,32 @@
       }
       .iron-flex{
         width: 50%;
-        background-color: #eee;
-        height: 100px;
         margin-right: 1em;
       }
     </style>
-    <div class="layout horizontal">
-      <fragCode-collection class="iron-flex"></fragCode-collection>
-      <fragCode-form class="iron-flex"></fragCode-form>
-    </div>
+  <div class="layout horizontal">
+    <frag-code-collection class="iron-flex"></frag-code-collection>
+    <frag-code-form class="iron-flex"></frag-code-form>
+  </div>
   </template>
 
   <script>
-      Polymer({
-        is: "frag-code-app"
-      })    
+    /**
+     * @customElement
+     * @polymer
+     */
+    class FragCodeApp extends Polymer.Element {
+      static get is() { return 'frag-code-app'; }
+      /* static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'frag-code-app'
+          }
+        };
+      } */
+    }
 
+    window.customElements.define(FragCodeApp.is, FragCodeApp);
   </script>
 </dom-module>
