@@ -1,0 +1,28 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+
+<dom-module id="frag-code-app">
+  <template>
+    <style include="iron-flex iron-flex-alignment">
+      :host {
+        display: block;
+      }
+      .iron-flex{
+        width: 50%;
+        background-color: #eee;
+      }
+    </style>
+    <div clas="layout horizontal">
+      <fragCode-collection class="iron-flex"></fragCode-collection>
+      <fragCode-form class="iron-flex"></fragCode-form>
+    </div>
+  </template>
+
+  <script>
+      Polymer({
+        is: "frag-code-app"
+      })    
+
+  </script>
+</dom-module>

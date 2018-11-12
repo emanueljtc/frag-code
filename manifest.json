@@ -1,0 +1,7 @@
+{
+  "name": "frag-code",
+  "short_name": "frag-code",
+  "description": "Aplicacion para guardar fragmentos de codigo&#34;",
+  "start_url": "/",
+  "display": "standalone"
+}
