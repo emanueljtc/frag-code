@@ -11,30 +11,40 @@
 <dom-module id="frag-code-form">
   <style>
     paper-button{
-      background-color: var(--accent-color);
+      background-color: var(--paper-teal-800);
       color: white;
+      margin-left: 0;
+      margin-top: 1em;
     }
   </style>
-  <template is="iron-form">
+  <template>
+    <form is="iron-form">
       <paper-input label="Big Description..." id="description"></paper-input>
-      <paper-textarea label="Copy your code here..." id="code"></paper-textarea>
+      <paper-textarea label="Copy your code here..." id="textarea" rows="5"></paper-textarea>
       <paper-input label="Language" id="language"></paper-input>
-
-      <paper-button raised on-tab="addSnippet">Save Snippet of code</paper-button>
+      
+      <paper-button raised on-tap="addSnippet">Save Snippet of code</paper-button>
+    </form>
   </template>
   <script>
-    class FragCodeForm extends Polymer.Element {
-        static get is() { return 'frag-code-form'; }
-        /* static get properties() {
-          return {
-            prop1: {
-              type: String,
-              value: 'frag-code-app'
-            }
-          };
-        } */
+    Polymer({
+      is:"frag-code-form",
+       properties: {
+        collection: {
+          type: Array,
+          notify: true
+        }
+      },
+      addSnippet: function(){
+        var codeObj = {
+          description: this.$.description.value,
+          code: this.$.textarea.value,
+          lang: this.$.language.value
+        };
+        this.push("collection", codeObj);
+        console.log("desde el form: ");
+        console.log(this.collection);
       }
-
-      window.customElements.define(FragCodeForm.is, FragCodeForm);
+    })
   </script>
 </dom-module>

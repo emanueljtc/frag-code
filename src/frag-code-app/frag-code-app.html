@@ -15,27 +15,26 @@
     </style>
   <div class="layout horizontal">
     <frag-code-collection class="iron-flex"></frag-code-collection>
-    <frag-code-form class="iron-flex"></frag-code-form>
+    <frag-code-form class="iron-flex" codeCollection="{{codeCollection}}"></frag-code-form>
   </div>
   </template>
 
   <script>
-    /**
-     * @customElement
-     * @polymer
-     */
-    class FragCodeApp extends Polymer.Element {
-      static get is() { return 'frag-code-app'; }
-      /* static get properties() {
-        return {
-          prop1: {
-            type: String,
-            value: 'frag-code-app'
-          }
-        };
-      } */
-    }
-
-    window.customElements.define(FragCodeApp.is, FragCodeApp);
+    Polymer({
+      is: "frag-code-app",
+      properties: {
+        collection:{
+          type: Array,
+          value: function(){ return []; }
+        },
+      },
+      observers: [
+        "_collectionChanged(collection.*)"
+      ],
+      _collectionChanged: function(){
+        console.log("desde el observador del host: ");
+        console.log(this.collection);
+      }
+    })
   </script>
 </dom-module>
